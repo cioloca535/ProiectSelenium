@@ -2,6 +2,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.List;
+
 public class SeleniumTest {
 
 
@@ -17,7 +19,8 @@ public class SeleniumTest {
 
         public static ChromeDriver CreateNewDriver(){
             ChromeDriver driver = new ChromeDriver();
-            driver.get("https://testpages.herokuapp.com/styled/tag/dynamic-table.html");
+//          driver.get("https://testpages.herokuapp.com/styled/tag/dynamic-table.html");
+            driver.get("https://demoqa.com/text-box");
             return driver;
         }
 
@@ -51,11 +54,21 @@ public class SeleniumTest {
             caption.sendKeys("Albastru");
             refresh.click();
 
-*/
+
 
             WebElement rand1 = driver.findElement(By.cssSelector("#dynamictable tr"));
             System.out.println(rand1.getText());
-//            List<WebElement> tablerows = driver.findElements(By.cssSelector("#dynamictable tr"));
+            List<WebElement> tablerows = driver.findElements(By.cssSelector("#dynamictable tr"));
+*/
+
+            WebElement insertText = driver.findElement(By.cssSelector("#userName"));
+            WebElement submit = driver.findElement(By.cssSelector("#submit"));
+            WebElement email = driver.findElement(By.id("userEmail-label"));
+            insertText.clear();
+            insertText.sendKeys("Alexandru");
+            submit.click();
+            System.out.println(email.getText());
+
 
         }
 
